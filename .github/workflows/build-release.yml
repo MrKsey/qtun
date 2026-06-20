@@ -271,8 +271,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Rust stable
-        uses: dtolnay/rust-toolchain@stable
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
 
       - name: Install cross
         run: cargo install cross
@@ -280,7 +280,7 @@ jobs:
       - name: Build release (MIPS)
         run: |
           cd build
-          ./build-release -t mips-unknown-linux-musl
+          RUSTFLAGS="-Zbuild-std=std,proc_macro" ./build-release -t mips-unknown-linux-musl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -293,8 +293,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Rust stable
-        uses: dtolnay/rust-toolchain@stable
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
 
       - name: Install cross
         run: cargo install cross
@@ -302,7 +302,7 @@ jobs:
       - name: Build release (MIPS LE)
         run: |
           cd build
-          ./build-release -t mipsel-unknown-linux-musl
+          RUSTFLAGS="-Zbuild-std=std,proc_macro" ./build-release -t mipsel-unknown-linux-musl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

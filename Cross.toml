@@ -1,0 +1,10 @@
+[build]
+pre-build = [
+    "apt-get update && apt-get install --assume-yes --no-install-recommends cmake"
+]
+
+[target.mipsel-unknown-linux-musl]
+build-std = ["std", "proc_macro"]
+
+[target.mips-unknown-linux-musl]
+build-std = ["std", "proc_macro"]
