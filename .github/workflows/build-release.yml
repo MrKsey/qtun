@@ -273,6 +273,8 @@ jobs:
 
       - name: Install Rust nightly
         uses: dtolnay/rust-toolchain@nightly
+        with:
+          targets: mips-unknown-linux-musl
 
       - name: Install cross
         run: cargo install cross
@@ -295,6 +297,8 @@ jobs:
 
       - name: Install Rust nightly
         uses: dtolnay/rust-toolchain@nightly
+        with:
+          targets: mipsel-unknown-linux-musl
 
       - name: Install cross
         run: cargo install cross

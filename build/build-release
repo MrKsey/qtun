@@ -60,11 +60,11 @@ function build() {
     RELEASE_DIR="target/${TARGET}/release"
     TARGET_FEATURES="${features[@]}"
 
-    BUILD_CMD="cross build"
-    
-    # Add -Z build-std for targets that need it
+    # Use cargo with -Z build-std for targets that need it, otherwise use cross
     if [[ "${use_build_std}" = true ]]; then
         BUILD_CMD="cargo +nightly build -Z build-std=std,proc_macro"
+    else
+        BUILD_CMD="cross build"
     fi
 
     if [[ "${TARGET_FEATURES}" != "" ]]; then
