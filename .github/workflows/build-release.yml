@@ -299,10 +299,10 @@ jobs:
       - name: Install cross
         run: cargo install cross
 
-      - name: Build release (MIPS LE soft float)
+      - name: Build release (MIPS LE)
         run: |
           cd build
-          ./build-release -t mipsel-unknown-linux-muslsf
+          ./build-release -t mipsel-unknown-linux-musl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
