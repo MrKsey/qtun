@@ -278,6 +278,8 @@ jobs:
         run: cargo install cross
 
       - name: Build release (MIPS)
+        env:
+          RUSTFLAGS: "--cfg target_has_atomic=\"64\""
         run: |
           cd build
           ./build-release -t mips-unknown-linux-musl
@@ -300,6 +302,8 @@ jobs:
         run: cargo install cross
 
       - name: Build release (MIPS LE)
+        env:
+          RUSTFLAGS: "--cfg target_has_atomic=\"64\""
         run: |
           cd build
           ./build-release -t mipsel-unknown-linux-musl
