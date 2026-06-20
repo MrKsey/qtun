@@ -280,7 +280,7 @@ jobs:
       - name: Build release (MIPS)
         run: |
           cd build
-          RUSTFLAGS="-Zbuild-std=std,proc_macro" ./build-release -t mips-unknown-linux-musl
+          ./build-release -t mips-unknown-linux-musl -s
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -302,7 +302,7 @@ jobs:
       - name: Build release (MIPS LE)
         run: |
           cd build
-          RUSTFLAGS="-Zbuild-std=std,proc_macro" ./build-release -t mipsel-unknown-linux-musl
+          ./build-release -t mipsel-unknown-linux-musl -s
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
