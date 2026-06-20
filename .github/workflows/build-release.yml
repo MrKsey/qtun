@@ -271,15 +271,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Rust nightly
-        uses: dtolnay/rust-toolchain@nightly
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install cross
         run: cargo install cross
 
       - name: Build release (MIPS)
-        env:
-          RUSTFLAGS: "--cfg target_has_atomic=\"64\""
         run: |
           cd build
           ./build-release -t mips-unknown-linux-musl
@@ -295,15 +293,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Rust nightly
-        uses: dtolnay/rust-toolchain@nightly
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install cross
         run: cargo install cross
 
       - name: Build release (MIPS LE)
-        env:
-          RUSTFLAGS: "--cfg target_has_atomic=\"64\""
         run: |
           cd build
           ./build-release -t mipsel-unknown-linux-musl
