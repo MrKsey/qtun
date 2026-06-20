@@ -273,8 +273,6 @@ jobs:
 
       - name: Install Rust nightly
         uses: dtolnay/rust-toolchain@nightly
-        with:
-          targets: mips-unknown-linux-musl
 
       - name: Install cross
         run: cargo install cross
@@ -282,7 +280,7 @@ jobs:
       - name: Build release (MIPS)
         run: |
           cd build
-          ./build-release -t mips-unknown-linux-musl -s
+          ./build-release -t mips-unknown-linux-musl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -297,8 +295,6 @@ jobs:
 
       - name: Install Rust nightly
         uses: dtolnay/rust-toolchain@nightly
-        with:
-          targets: mipsel-unknown-linux-musl
 
       - name: Install cross
         run: cargo install cross
@@ -306,7 +302,7 @@ jobs:
       - name: Build release (MIPS LE)
         run: |
           cd build
-          ./build-release -t mipsel-unknown-linux-musl -s
+          ./build-release -t mipsel-unknown-linux-musl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
